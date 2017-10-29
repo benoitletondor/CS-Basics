@@ -1,12 +1,14 @@
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
- * Implementation of ArrayList (some methods are missing so it's not implementing {@link java.util.List})
+ * Implementation of ArrayList
  *
  * @param <E> type of object
  */
-public class ArrayList<E> {
+public class ArrayList<E> implements List<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
     private static final int GROW_FACTOR = 2;
@@ -32,18 +34,22 @@ public class ArrayList<E> {
 
 // --------------------------------------->
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
-        return size == 0;
+        return size < 1;
     }
 
+    @Override
     public boolean contains(Object o) {
         return indexOf(o) >= 0;
     }
 
+    @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             private int index = 0;
@@ -66,6 +72,7 @@ public class ArrayList<E> {
         };
     }
 
+    @Override
     public Object[] toArray() {
         Object[] array = new Object[size];
 
@@ -76,12 +83,19 @@ public class ArrayList<E> {
         return array;
     }
 
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return (T[]) toArray();
+    }
+
+    @Override
     public boolean add(E e) {
         ensureSize(size+1);
         elements[size++] = e;
         return true;
     }
 
+    @Override
     public boolean remove(Object o) {
         if( o == null ) {
             for(int i = 0; i<size; i++) {
@@ -102,6 +116,7 @@ public class ArrayList<E> {
         return false;
     }
 
+    @Override
     public boolean containsAll(Collection<?> c) {
         for(Object o : c) {
             if( !contains(o) ) {
@@ -112,6 +127,7 @@ public class ArrayList<E> {
         return true;
     }
 
+    @Override
     public boolean addAll(Collection<? extends E> c) {
         final Object[] objectsToAdd = c.toArray();
 
@@ -125,6 +141,7 @@ public class ArrayList<E> {
         return objectsToAdd.length > 0;
     }
 
+    @Override
     public boolean addAll(int index, Collection<? extends E> c) {
         final Object[] objectsToAdd = c.toArray();
         ensureSize(size + objectsToAdd.length );
@@ -142,6 +159,7 @@ public class ArrayList<E> {
         return objectsToAdd.length > 0;
     }
 
+    @Override
     public boolean removeAll(Collection<?> c) {
         final int currentSize = size;
 
@@ -152,21 +170,30 @@ public class ArrayList<E> {
         return size < currentSize;
     }
 
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false; // TODO
+    }
+
+    @Override
     public void clear() {
         elements = new Object[elements.length];
         size = 0;
     }
 
+    @Override
     public E get(int index) {
         return (E) elements[index];
     }
 
+    @Override
     public E set(int index, E element) {
         final E currentElement = (E) elements[index];
         elements[index] = element;
         return currentElement;
     }
 
+    @Override
     public void add(int index, E element) {
         ensureSize(size +1 );
 
@@ -178,6 +205,7 @@ public class ArrayList<E> {
         size++;
     }
 
+    @Override
     public E remove(int index) {
         final E element = (E) elements[index];
 
@@ -204,6 +232,7 @@ public class ArrayList<E> {
         return element;
     }
 
+    @Override
     public int indexOf(Object o) {
         if( o == null ) {
             for(int i=0; i<size; i++) {
@@ -222,6 +251,7 @@ public class ArrayList<E> {
         return -1;
     }
 
+    @Override
     public int lastIndexOf(Object o) {
         if( o == null ) {
             for(int i=size-1; i>= 0; i--) {
@@ -240,6 +270,17 @@ public class ArrayList<E> {
         return -1;
     }
 
+    @Override
+    public ListIterator<E> listIterator() {
+        return null; // TODO
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        return null; // TODO
+    }
+
+    @Override
     public ArrayList<E> subList(int fromIndex, int toIndex) {
         final ArrayList<E> subList = new ArrayList<>(toIndex - fromIndex);
 
