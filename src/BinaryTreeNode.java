@@ -31,6 +31,10 @@ public class BinaryTreeNode<V> implements Iterable<V>, Cloneable {
         return right;
     }
 
+    public V getValue() {
+        return value;
+    }
+
 // --------------------------------------->
 
     public List<V> asList() {
