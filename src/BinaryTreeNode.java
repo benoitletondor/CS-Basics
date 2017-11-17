@@ -61,8 +61,15 @@ public class BinaryTreeNode<V> implements Iterable<V>, Cloneable {
     @Override
     protected BinaryTreeNode<V> clone() throws CloneNotSupportedException {
         final BinaryTreeNode<V> copy = new BinaryTreeNode<V>(value);
-        copy.left = left.clone();
-        copy.right = left.clone();
+
+        if (left != null) {
+            copy.left = left.clone();
+        }
+
+        if( right != null ) {
+            copy.right = left.clone();
+        }
+
         return copy;
     }
 
