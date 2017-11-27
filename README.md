@@ -1,6 +1,6 @@
 # Implementation of core data structures and algorithms
 
-This repo is simply a playground to work on implementing the basic data structures, algorithms and concepts of computer sciences using Java 7.
+This repo is simply a playground to work on implementing the basic data structures, algorithms and concepts of computer science using Java 7.
 
 ### What's in there
 
@@ -10,10 +10,12 @@ This repo is simply a playground to work on implementing the basic data structur
     - LinkedList
     - BinaryTree
     - StringBuilder
+    - Trie
 - Search algorithms
     - BinarySearch
 - Sort algorithms
     - MergeSort
+    - QuickSort
 
 ### Disclaimer
 
