@@ -16,6 +16,8 @@ This repo is simply a playground to work on implementing the basic data structur
 - Sort algorithms
     - MergeSort
     - QuickSort
+- Other
+    - PermutationGenerator
 
 ### Disclaimer
 
