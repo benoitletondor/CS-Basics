@@ -19,6 +19,7 @@ This repo is simply a playground to work on implementing the basic data structur
 - Other
     - PermutationGenerator
     - StringPatternMatching
+    - LRUCache
 
 ### Disclaimer
 
