@@ -18,6 +18,7 @@ This repo is simply a playground to work on implementing the basic data structur
     - QuickSort
 - Other
     - PermutationGenerator
+    - StringPatternMatching
 
 ### Disclaimer
 
