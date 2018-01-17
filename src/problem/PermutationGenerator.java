@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PermutationGenerator {
 
-    List<String> getPermutation(String input) {
+    public List<String> getPermutation(String input) {
         if( input == null ) {
             throw new NullPointerException("input==null");
         }
@@ -41,19 +41,4 @@ public class PermutationGenerator {
         a[i] = a[x];
         a[x] = t;
     }
-
-    /*
-    Less optimal solution that uses lot of string concatenation
-    private static void permutation(String prefix, String str, List<String> permutations) {
-        int n = str.length();
-        if (n == 0) {
-            permutations.add(prefix);
-        }
-        else {
-            for (int i = 0; i < n; i++) {
-                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n), permutations);
-            }
-        }
-    }
-    */
 }
